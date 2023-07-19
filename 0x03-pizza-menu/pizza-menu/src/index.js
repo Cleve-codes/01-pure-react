@@ -58,44 +58,67 @@ function App() {
 }
 
 function Header() {
-  const style = {};
-
   return (
     <header className="header">
-      <h1 style={style}>Fast React Pizza Co.</h1>;
+      <h1>Fast React Pizza Co.</h1>;
     </header>
   );
 }
 
 function Menu() {
   const pizzas = pizzaData;
+  // const pizzas = [];
   const numLength = pizzas.length;
 
-  return numLength > 0 ? (
+  return (
     <main className="menu">
-      <ul className="pizzas">
-        {pizzas.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-      </ul>
+      <h2>Our menu</h2>
+
+      {numLength > 0 ? (
+        // React fragmentation- achieved through using empty tags
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from all .
+            All from our stone oven, all organic all delicious
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We are working on our menu. Come back later negro.</p>
+      )}
     </main>
-  ) : (
-    <p>We are working on our menu. Come back letter negro.</p>
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
+  // if (pizzaObj.soldOut) return null;
+
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+
+        {/* Check if sold out */}
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
+
+        {/* {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} */}
       </div>
     </li>
   );
 }
+
+/* Authentic Italian cuisine. 6 creative dishes to choose
+ from all . All from our stone oven, all organic all delicious */
 
 function Footer() {
   const hours = new Date().getHours();
@@ -110,19 +133,28 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We are open until {close}:00hrs. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order openHour={open} closeHour={close} />
       ) : (
-        <p>We are closed at the moment</p>
+        <p>We are open until {close}. Please come back later!</p>
       )}
     </footer>
   );
   // return React.createElement("footer", null, "Were Currently open");
 }
 
-// React v18
+function Order({ openHour, closeHour }) {
+  return (
+    <div className="order">
+      <p>
+        We are happy to welcome you between {openHour}:00 and {closeHour}
+        :00.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
+
+// React v18 rendering components on the DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
