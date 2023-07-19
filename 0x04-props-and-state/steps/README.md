@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Topic Learnt
+
+On this section, I learnt adding and setting event listeners in React
+
+- This can be achieved by setting the handlers as props to the event target elements and then passing the handler function as the value to the prop.
