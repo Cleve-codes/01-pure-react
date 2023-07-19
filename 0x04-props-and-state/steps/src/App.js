@@ -1,35 +1,76 @@
+import { useState } from "react";
+
 const messages = [
   "Learn React ⚛️",
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
 
-export default function App() {
-  let steps = 1;
+// export default function App() {
+//   const [step, setStep] = useState(1);
 
-  /* Event handler functions */
-  /* Handle event on previousBtn click */
+//   /* Event handler functions */
+//   /* Handle event on previousBtn click */
+//   function handlePrevious() {
+//     if (step > 1) setStep(step - 1);
+//   }
+//   /* Handle event on nextBtn click */
+//   function handleNext() {
+//     if (step < 3) setStep(step + 1);
+//   }
+
+//   return (
+//     <div className="steps">
+//       <div className="numbers">
+//         <div className={step >= 1 ? "active" : ""}>1</div>
+//         <div className={step >= 2 ? "active" : ""}>2</div>
+//         <div className={step >= 3 ? "active" : ""}>3</div>
+//       </div>
+
+//       {/* Change display message based on btn click */}
+//       <p className="message">
+//         Step {step}: {messages[step - 1]}
+//       </p>
+
+//       <div className="buttons">
+//         <button
+//           style={{ backgroundColor: "#7950f2", color: "#fff" }}
+//           onClick={handlePrevious}
+//         >
+//           Previous
+//         </button>
+//         <button
+//           style={{ backgroundColor: "#7950f2", color: "#fff" }}
+//           onClick={handleNext}
+//         >
+//           Next
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+export default function App() {
+  const [step, setStep] = useState(1);
+
   function handlePrevious() {
-    alert("Previous");
+    if (step > 1) setStep(step - 1);
   }
-  /* Handle event on nextBtn click */
+
   function handleNext() {
-    alert("Next");
+    if (step < 3) setStep(step + 1);
   }
 
   return (
     <div className="steps">
       <div className="numbers">
-        <div className={`${steps >= 1 ? "active" : ""}`}>1</div>
-        <div className={`${steps >= 2 ? "active" : ""}`}>2</div>
-        <div className={`${steps >= 3 ? "active" : ""}`}>3</div>
+        <div className={step >= 1 ? "active" : ""}>1</div>
+        <div className={step >= 2 ? "active" : ""}>2</div>
+        <div className={step >= 3 ? "active" : ""}>3</div>
       </div>
-
-      {/* Change display message based on btn click */}
       <p className="message">
-        Step {steps} {messages[steps - 1]}
+        Step {step}: {messages[step - 1]}
       </p>
-
       <div className="buttons">
         <button
           style={{ backgroundColor: "#7950f2", color: "#fff" }}
