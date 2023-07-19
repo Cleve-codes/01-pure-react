@@ -74,3 +74,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 On this section, I learnt adding and setting event listeners in React
 
 - This can be achieved by setting the handlers as props to the event target elements and then passing the handler function as the value to the prop.
+
+## Topic Learnt
+
+I leant on the following topics in this section
+
+- Handling events
+- Using react hooks specifically "useState()"
