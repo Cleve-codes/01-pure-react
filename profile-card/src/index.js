@@ -2,6 +2,34 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
+const skills = [
+  {
+    skill: "Html & CSS",
+    level: "Advanced",
+    color: "#ff3b00",
+  },
+  {
+    skill: "React",
+    level: "Beginner",
+    color: "#60dafb",
+  },
+  {
+    skill: "Tailwind",
+    level: "Intermediate",
+    color: "#c3dcaf",
+  },
+  {
+    skill: "Git",
+    level: "Advanced",
+    color: "#e84f33",
+  },
+  {
+    skill: "Redux",
+    level: "Beginner",
+    color: "#2662ea",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -34,21 +62,17 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill member="Old dirty" color="green" />
-      <Skill member="U-god" color="yellow" />
-      <Skill member="GZA" color="blue" />
-      <Skill member="RZA" color="orange" />
-      <Skill member="Masta Killa" color="brown" />
-      <Skill member="Raekwon" color="cyan" />
-      <Skill member="Ghostface" color="purple" />
+      {skills.map((skill) => (
+        <Skill skill={skill.skill} color={skill.color} />
+      ))}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skill, color }) {
   return (
-    <div className="skill" style={{ backgroundColor: props.color }}>
-      <span>{props.member}</span>
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
     </div>
   );
 }
