@@ -26,11 +26,12 @@ function Form() {
   // Function to handle the submit event
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (!description) return;
+
     const newItem = { description, selection, packed: false, id: Date.now() };
     console.log(newItem);
   }
-
-  if (!description) return;
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
