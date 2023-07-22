@@ -74,3 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - I learnt on state and state-manangement
 - Raising up a state
 - Passing a state to inner children
+- Deriving a state
