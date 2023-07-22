@@ -1,4 +1,8 @@
 import { useState } from "react";
+import Logo from "./Logo";
+import Form from "./Form";
+import PackingList from "./PackingList";
+import Stats from "./stats";
 
 // const initialItems = [
 //   { id: 1, description: "Passports", quantity: 2, packed: false },
@@ -26,7 +30,7 @@ export default function App() {
 
   function handleClearList() {
     const confirmed = window.confirm(
-      "Are you certain you want to delete all Items? "
+      "Are you certain you want to delete all Items from the list? "
     );
     if (confirmed) setItem([]);
   }
@@ -43,141 +47,5 @@ export default function App() {
       />
       <Stats items={items} />
     </div>
-  );
-}
-
-function Logo() {
-  return <h1>🌴 Far Away 🧳</h1>;
-}
-function Form({ onAddItems }) {
-  const [description, setDescrition] = useState("");
-  const [quantity, setQuantity] = useState(1);
-
-  // Function to handle the submit event
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!description) return;
-
-    const newItem = { description, quantity, packed: false, id: Date.now() };
-    console.log(newItem);
-
-    onAddItems(newItem);
-    setDescrition("");
-    setQuantity(1);
-  }
-
-  return (
-    <form className="add-form" onSubmit={handleSubmit}>
-      <h3>What do you need for your 😍 trip</h3>
-      <select
-        value={quantity}
-        onChange={(e) => setQuantity(Number(e.target.value))}
-      >
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-          <option value={num} key={num}>
-            {num}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="Item..."
-        value={description}
-        onChange={(e) => {
-          setDescrition(e.target.value);
-        }}
-      />
-      <button>Add</button>
-    </form>
-  );
-}
-function PackingList({ items, onDeleteItems, onToggle, onClearList }) {
-  const [sortBy, setSortBy] = useState("input");
-
-  // Sorting the Items based on criteria
-  let sortedItems;
-
-  // Sorting Items by input order
-  if (sortBy === "input") sortedItems = items;
-
-  // Sorting Items by alphabetic order
-  if (sortBy === "description") {
-    sortedItems = items
-      .slice()
-      .sort((a, b) => a.description.localeCompare(b.description));
-  }
-
-  // Sorting Items by packed status
-  if (sortBy === "packed") {
-    sortedItems = items
-      .slice()
-      .sort((a, b) => Number(a.packed) - Number(b.packed));
-  }
-
-  return (
-    <div className="list">
-      <ul>
-        {sortedItems.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteItems={onDeleteItems}
-            onToggle={onToggle}
-          />
-        ))}
-      </ul>
-
-      <div className="actions">
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="input">Sort by input order</option>
-          <option value="description">Sort by description</option>
-          <option value="packed">Sort by packed status</option>
-        </select>
-        <button onClick={onClearList}>Clear List</button>
-      </div>
-    </div>
-  );
-}
-
-function Item({ item, onDeleteItems, onToggle }) {
-  return (
-    <li>
-      <input
-        type="checkbox"
-        value={item.packed}
-        onChange={() => {
-          onToggle(item.id);
-        }}
-      />
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.quantity} {item.description}
-      </span>
-      <button onClick={() => onDeleteItems(item.id)}>❌</button>
-    </li>
-  );
-}
-
-function Stats({ items }) {
-  const numItems = items.length;
-  const numItemsPacked = items.filter((item) => item.packed).length;
-  const percentage = Math.floor((numItemsPacked / numItems) * 100);
-
-  if (!numItems) {
-    return (
-      <p className="stats">
-        <em>Start adding some some items to your packing list</em>
-      </p>
-    );
-  }
-
-  return (
-    <footer className="stats">
-      <em>
-        {percentage === 100
-          ? "You have got everything ready to go."
-          : `You have ${numItems} items in your list, and you have packed ${numItemsPacked} (${percentage}%)`}
-      </em>
-    </footer>
   );
 }
