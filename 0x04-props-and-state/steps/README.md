@@ -81,3 +81,4 @@ I leant on the following topics in this section
 
 - Handling events
 - Using react hooks specifically "useState()"
+- Children props (Definition and practical use instance)
