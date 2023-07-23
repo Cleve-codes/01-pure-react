@@ -19,28 +19,35 @@ const faqs = [
 export default function App() {
   return (
     <div className="App">
-      <Accordion />
+      <Accordion data={faqs} />
     </div>
   );
 }
 
-function Accordion() {
-  const [hidden, setHidden] = useState(false);
+function Accordion({ data }) {
+  return (
+    <div className="accordion">
+      {data.map((faq, i) => (
+        <AccordionItem i={i} item={faq} key={i} />
+      ))}
+    </div>
+  );
+}
 
-  function revealSection(e) {
-    if (e.target !== hidden) setHidden(true);
+function AccordionItem({ i, item }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Handle click event on the item
+  function handleToggle() {
+    setIsOpen((isOpen) => !isOpen);
   }
 
   return (
-    <div className="accordion">
-      {faqs.map((faq, i) => (
-        <div className="item" onClick={revealSection}>
-          <span className="number">{i + 1}</span>
-          <span className="title">{faq.title}</span>
-          <span className="icon">+</span>
-          {hidden && <p className="content-box">{faq.text}</p>}
-        </div>
-      ))}
+    <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
+      <span className="number">{i < 9 ? `0${i + 1}` : i + 1}</span>
+      <span className="title">{item.title}</span>
+      <span className="icon">{isOpen ? "-" : "+"}</span>
+      {isOpen && <p className="content-box">{item.text}</p>}
     </div>
   );
 }
