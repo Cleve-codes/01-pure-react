@@ -74,3 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 While building this project, I learnt the following react topics:
 
 - Controlled elements (How to setup and use controlled elements)
+- The useState hook (How to lift up state and some practice).After which I fully appreciate the power of state in React
