@@ -31,8 +31,43 @@ export default function App() {
 
   return (
     <>
-      <SearchBar movies={movies} />
+      <SearchBar>
+        <Logo />
+        <Input />
+        <Results />
+      </SearchBar>
       <Main movies={movies} />
     </>
   );
 }
+
+const Logo = () => {
+  return (
+    <div className="logo">
+      <span role="img">🍿</span>
+      <h1>usePopcorn</h1>
+    </div>
+  );
+};
+
+const Input = () => {
+  const [query, setQuery] = useState("");
+
+  return (
+    <input
+      className="search"
+      type="text"
+      placeholder="Search movies..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
+  );
+};
+
+const Results = ({ movies }) => {
+  return (
+    <p className="num-results">
+      Found <strong>{movies.length}</strong> results
+    </p>
+  );
+};
