@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Main from "./components/Main";
+import ListBox from "./components/ListBox";
+import WatchedBox from "./components/WatchedBox";
 
 const tempMovieData = [
   {
@@ -67,7 +69,10 @@ const Results = () => {
         <Input />
         <Results />
       </SearchBar>
-      <Main movies={movies} />
+      <Main>
+        <ListBox movies={movies} />
+        <WatchedBox movies={movies} />
+      </Main>
     </>
   );
 }
