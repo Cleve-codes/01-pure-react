@@ -62,7 +62,30 @@ const Results = () => {
   );
 };
 
+const MovieList = ({ movies }) => {
+  return (
+    <ul className="list">
+      {movies?.map((movie) => (
+        <Movie movie={movie} key={movie.imdbID} />
+      ))}
+    </ul>
+  );
+};
 
+const Movie = ({ movie }) => {
+  return (
+    <li key={movie.imdbID}>
+      <img src={movie.Poster} alt={`${movie.Title} poster`} />
+      <h3>{movie.Title}</h3>
+      <div>
+        <p>
+          <span>🗓</span>
+          <span>{movie.Year}</span>
+        </p>
+      </div>
+    </li>
+  );
+};
 
   return (
     <>
@@ -74,7 +97,6 @@ const Results = () => {
       <Main>
         <ListBox>
           <MovieList movies={movies} />
-          <Movie movies={movies} />
         </ListBox>
         <WatchedBox movies={movies} />
       </Main>
