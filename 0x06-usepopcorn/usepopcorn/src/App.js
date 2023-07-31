@@ -62,6 +62,8 @@ const Results = () => {
   );
 };
 
+
+
   return (
     <>
       <SearchBar>
@@ -70,7 +72,10 @@ const Results = () => {
         <Results />
       </SearchBar>
       <Main>
-        <ListBox movies={movies} />
+        <ListBox>
+          <MovieList movies={movies} />
+          <Movie movies={movies} />
+        </ListBox>
         <WatchedBox movies={movies} />
       </Main>
     </>

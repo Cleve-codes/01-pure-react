@@ -16,6 +16,7 @@ const ListBox = ({ movies }) => {
   );
 };
 
+
 const MovieList = ({ movies }) => {
   return (
     <ul className="list">
