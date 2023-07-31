@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
-const SearchBar = () => {
-  return <nav className="nav-bar"></nav>;
+const SearchBar = ({children}) => {
+  return <nav className="nav-bar">{children}</nav>;
 };
 
 export default SearchBar;

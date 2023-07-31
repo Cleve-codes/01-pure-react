@@ -29,19 +29,7 @@ const tempMovieData = [
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
 
-  return (
-    <>
-      <SearchBar>
-        <Logo />
-        <Input />
-        <Results />
-      </SearchBar>
-      <Main movies={movies} />
-    </>
-  );
-}
-
-const Logo = () => {
+  const Logo = () => {
   return (
     <div className="logo">
       <span role="img">🍿</span>
@@ -64,10 +52,24 @@ const Input = () => {
   );
 };
 
-const Results = ({ movies }) => {
+const Results = () => {
   return (
     <p className="num-results">
       Found <strong>{movies.length}</strong> results
     </p>
   );
 };
+
+  return (
+    <>
+      <SearchBar>
+        <Logo />
+        <Input />
+        <Results />
+      </SearchBar>
+      <Main movies={movies} />
+    </>
+  );
+}
+
+
