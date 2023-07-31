@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <SearchBar />
+      <SearchBar movies={movies} />
       <Main movies={movies} />
     </>
   );
