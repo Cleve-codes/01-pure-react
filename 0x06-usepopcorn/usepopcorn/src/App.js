@@ -95,6 +95,14 @@ const MovieList = ({ movies }) => {
   );
 };
 
+const WatchedMovieList = ({watched}) => {
+  return <ul className="list">
+      {watched?.map((movie) => (
+        <Movie movie={movie} key={movie.imdbID} />
+      ))}
+  </ul>
+}
+
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
@@ -157,6 +165,7 @@ const Movie = ({ movie }) => {
 
         <Box>
           <Summary watched={watched} />
+          <WatchedMovieList watched={watched} />
         </Box>
        
       </Main>
