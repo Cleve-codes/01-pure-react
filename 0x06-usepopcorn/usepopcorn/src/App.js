@@ -156,7 +156,7 @@ const Movie = ({ movie }) => {
         </Box>
 
         <Box>
-          <Summary />
+          <Summary watched={watched} />
         </Box>
        
       </Main>
