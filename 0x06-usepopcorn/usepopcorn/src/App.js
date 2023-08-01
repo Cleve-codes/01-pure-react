@@ -160,7 +160,7 @@ const Movie = ({ movie }) => {
       </SearchBar>
       <Main>
         {/* Explicitly passing elements as props */}
-        <Box element={<MovieList movies={movies} />} />
+        {/*<Box element={<MovieList movies={movies} />} />
         <Box
           element={
             <>
@@ -168,17 +168,17 @@ const Movie = ({ movie }) => {
               <WatchedMovieList watched={watched} />
             </>
           }
-        />
+        />*/}
 
         {/* Implicitly passing elements as Children */}
-        {/*<Box>
+        <Box>
           <MovieList movies={movies} />
         </Box>
 
         <Box>
           <Summary watched={watched} />
           <WatchedMovieList watched={watched} />
-  </Box>*/}
+  </Box>
       </Main>
     </>
   );
