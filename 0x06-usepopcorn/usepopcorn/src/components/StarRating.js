@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 
-const StarRating = ({ maxRating = 5, color = "#fcc419", size="48" }) => {
+const StarRating = ({ maxRating = 5, color = "#fcc419", size="48", messages=[] }) => {
   const [rating, setRating] = useState(1);
 
   const containerStyle = {
@@ -37,7 +37,7 @@ const StarRating = ({ maxRating = 5, color = "#fcc419", size="48" }) => {
           />
         ))}
       </div>
-      <p style={textStyle}>{rating}</p>
+      <p style={textStyle}>{messages.length === maxRating ? messages[rating - 1] : rating}</p>
     </div>
   );
 };
