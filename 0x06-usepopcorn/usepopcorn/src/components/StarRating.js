@@ -43,7 +43,7 @@ const StarRating = ({
         ))}
       </div>
       <p style={textStyle}>
-        {messages.length === maxRating ? messages[rating - 1] : rating}
+        {messages.length === maxRating ? messages[rating - 1] : messages.length === 0 || messages.length < maxRating ? "" : rating}
       </p>
     </div>
   );
