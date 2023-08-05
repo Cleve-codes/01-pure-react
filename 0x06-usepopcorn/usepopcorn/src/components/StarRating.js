@@ -7,7 +7,8 @@ const StarRating = ({
   size = 48,
   messages = [],
 }) => {
-  const [rating, setRating] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [tempRating, setTempRating] = useState(0);
 
   const containerStyle = {
     display: "flex",
@@ -27,6 +28,8 @@ const StarRating = ({
     fontSize: `${size / 1.5}px`,
   };
 
+  
+
   return (
     <div style={containerStyle}>
       <div style={starContainer}>
@@ -43,7 +46,9 @@ const StarRating = ({
         ))}
       </div>
       <p style={textStyle}>
-        {messages.length === maxRating ? messages[rating - 1] : messages.length === 0 || messages.length < maxRating ? "" : rating}
+        {messages.length === maxRating
+          ? messages[tempRating ? tempRating - 1 : rating - 1]
+          : tempRating || rating || ""}
       </p>
     </div>
   );
