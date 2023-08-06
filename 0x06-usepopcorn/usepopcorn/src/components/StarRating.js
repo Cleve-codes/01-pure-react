@@ -10,6 +10,7 @@ const StarRating = ({
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
+  console.log(messages)
   const containerStyle = {
     display: "flex",
     alignItems: "center",
