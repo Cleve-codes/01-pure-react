@@ -59,12 +59,12 @@ function TextExpander({
     color: buttonColor,
   };
 
+ 
+
   return (
     <div className={className}>
       <span>{displayText}</span>
-      <button onClick={() => setIsExpanded((exp) => !exp)} style={buttonStyle}>
-        {isExpanded ? collapseButtonText : expandButtonText}
-      </button>
+      <button style={buttonStyle} onClick={()=>setIsExpanded((exp)=>!exp)}>{isExpanded ? expandButtonText : collapseButtonText}</button>
     </div>
   );
 }
