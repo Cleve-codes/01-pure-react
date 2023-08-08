@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
+
 const StarRating = ({
   maxRating = 5,
   color = "#fcc419",
