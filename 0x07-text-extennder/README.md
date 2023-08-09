@@ -74,4 +74,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Practiced useState hook
 - Explicit passing of props as children
 - Default properties for components and their advantages
+- Prop drilling and how to avoid it
 - Building a component as an api(reusable component)
