@@ -1,11 +1,11 @@
 import React from 'react'
-import Movie from './Movie';
+import WatchedMovie from './WatchedMovie';
 
-const WatchedMovieList = ({ watched }) => {
+const WatchedMovieList = ({ watched, onDeleteWatched }) => {
   return (
     <ul className="list">
       {watched?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
+        <WatchedMovie movie={movie} onDeleteWatched={onDeleteWatched} key={movie.imdbID} />
       ))}
     </ul>
   );
