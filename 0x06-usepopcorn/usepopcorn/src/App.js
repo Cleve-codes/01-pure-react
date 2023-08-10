@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SearchBar from "./components/SearchBar";
 import Main from "./components/Main";
 import Box from "./components/Box";
@@ -63,6 +63,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const inputRef = useRef(null);
 
   const handleSelectMovie = (id) => {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -89,9 +90,10 @@ export default function App() {
     );
   };
 
-  const Input = ({ query, setQuery }) => {
+  const Input = ({ query, setQuery, inputRef }) => {
     return (
       <input
+      ref={inputRef}
         className="search"
         type="text"
         placeholder="Search movies..."
@@ -120,7 +122,7 @@ export default function App() {
 
           const res = await fetch(
             // `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            `http://www.omdbapi.com/?i=tt3896198&apikey=f0d9e6a3`,
+            `http://www.omdbapi.com/?i=tt3896198&apikey=${query}`,
             { signal: controller.signal }
           );
 
@@ -130,8 +132,8 @@ export default function App() {
           const data = await res.json();
           if (data.Response === "False") throw new Error("Movie not found");
 
-          //setMovies(data.Search);
-          setMovies(tempMovieData);
+          setMovies(data.Search);
+          //setMovies(tempMovieData);
           setError("");
         } catch (err) {
           if (err.name !== "AbortError") {
@@ -144,8 +146,8 @@ export default function App() {
       }
 
       if (query.length < 3) {
-        //setMovies([]);
-        setMovies(tempMovieData);
+        setMovies([]);
+        //setMovies(tempMovieData);
         setError("");
         return;
       }
@@ -164,7 +166,7 @@ export default function App() {
     <>
       <SearchBar>
         <Logo />
-        <Input query={query} setQuery={setQuery} />
+        <Input query={query} setQuery={setQuery} inputRef={inputRef} />
         <Results />
       </SearchBar>
       <Main>
