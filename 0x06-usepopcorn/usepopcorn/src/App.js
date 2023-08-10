@@ -10,8 +10,8 @@ import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 
 export default function App() {
-  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("");
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -43,10 +43,9 @@ export default function App() {
     );
   };
 
-  const Input = ({ query, setQuery, inputRef }) => {
+  function Search({ query, setQuery }) {
     return (
       <input
-      ref={inputRef}
         className="search"
         type="text"
         placeholder="Search movies..."
@@ -54,7 +53,7 @@ export default function App() {
         onChange={(e) => setQuery(e.target.value)}
       />
     );
-  };
+  }
 
   const Results = () => {
     return (
@@ -75,7 +74,7 @@ export default function App() {
 
           const res = await fetch(
             // `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            `http://www.omdbapi.com/?i=tt3896198&apikey=${query}`,
+            `http://www.omdbapi.com/?&apikey=f0d9e6a3&s=${query}`,
             { signal: controller.signal }
           );
 
@@ -119,7 +118,7 @@ export default function App() {
     <>
       <SearchBar>
         <Logo />
-        <Input query={query} setQuery={setQuery} inputRef={inputRef} />
+        <Search query={query} setQuery={setQuery} inputRef={inputRef} />
         <Results />
       </SearchBar>
       <Main>
