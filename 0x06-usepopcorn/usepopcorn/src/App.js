@@ -120,6 +120,7 @@ export default function App() {
 
           const res = await fetch(
             // `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            `http://www.omdbapi.com/?i=tt3896198&apikey=f0d9e6a3`,
             { signal: controller.signal }
           );
 
