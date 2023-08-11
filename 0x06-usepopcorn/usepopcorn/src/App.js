@@ -51,10 +51,14 @@ export default function App() {
     const inputRef = useRef(null);
 
     useKey("Enter", function () {
-      if (document.activeElement === inputRef.current) return;
+      if (document.activeElement !== inputRef.current) return;
       inputRef.current.focus();
       setQuery("");
     });
+
+    useEffect(function(){
+      inputRef.current.focus()
+    }, [query])
 
     return (
       <input
