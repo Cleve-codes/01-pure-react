@@ -10,6 +10,7 @@ import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 import { useMovies } from "./components/useMovies";
 import { useLocalStorageState } from "./components/useLocalStorageState";
+import useKey from "./components/useKey";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -47,14 +48,13 @@ export default function App() {
   };
 
   function Search({ query, setQuery }) {
-    const inputRef = useRef();
+    const inputRef = useRef(null);
 
-    useEffect(
-      function () {
-        inputRef.current.focus();
-      },
-      [query]
-    );
+    useKey("Enter", function () {
+      if (document.activeElement === inputRef.current) return;
+      inputRef.current.focus();
+      setQuery("");
+    });
 
     return (
       <input
