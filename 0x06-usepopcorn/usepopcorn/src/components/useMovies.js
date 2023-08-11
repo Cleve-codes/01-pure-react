@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 
-export const useMovies = (query, callback) => {
+export const useMovies = (query) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(
     function () {
-      callback?.();
       const controller = new AbortController();
 
       async function fetchMovies() {
