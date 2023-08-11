@@ -12,11 +12,15 @@ import ErrorMessage from "./components/ErrorMessage";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
-  const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const inputRef = useRef(null);
+  // const [watched, setWatched] = useState([]);
+   const [watched, setWatched] = useState(function(){
+    const storedMovie = localStorage.getItem('watched');
+    return JSON.parse(storedMovie);
+   });
 
   const handleSelectMovie = (id) => {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -28,6 +32,7 @@ export default function App() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
+    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
 
   function handleDeleteWatched(id) {
@@ -62,6 +67,13 @@ export default function App() {
       </p>
     );
   };
+
+  useEffect(
+    function () {
+      localStorage.setItem("watched", JSON.stringify(watched));
+    },
+    [watched]
+  );
 
   useEffect(
     function () {
