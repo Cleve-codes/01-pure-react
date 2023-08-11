@@ -49,8 +49,15 @@ export default function App() {
   };
 
   function Search({ query, setQuery }) {
+    const inputRef = useRef()
+
+    useEffect(function(){
+      inputRef.current.focus()
+    }, [query])
+
     return (
       <input
+        ref={inputRef}
         className="search"
         type="text"
         placeholder="Search movies..."
