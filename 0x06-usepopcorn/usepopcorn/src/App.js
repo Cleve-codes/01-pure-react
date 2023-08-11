@@ -12,14 +12,16 @@ import { useMovies } from "./components/useMovies";
 
 export default function App() {
   const [query, setQuery] = useState("");
-  
   const [selectedId, setSelectedId] = useState(null);
   const inputRef = useRef(null);
+  const { movies, isLoading, error } = useMovies(query, handleCloseMovie);
+
   // const [watched, setWatched] = useState([]);
-   const [watched, setWatched] = useState(function(){
-    const storedMovie = localStorage.getItem('watched');
+
+  const [watched, setWatched] = useState(function () {
+    const storedMovie = localStorage.getItem("watched");
     return JSON.parse(storedMovie);
-   });
+  });
 
   const handleSelectMovie = (id) => {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -48,11 +50,14 @@ export default function App() {
   };
 
   function Search({ query, setQuery }) {
-    const inputRef = useRef()
+    const inputRef = useRef();
 
-    useEffect(function(){
-      inputRef.current.focus()
-    }, [query])
+    useEffect(
+      function () {
+        inputRef.current.focus();
+      },
+      [query]
+    );
 
     return (
       <input
@@ -80,8 +85,6 @@ export default function App() {
     },
     [watched]
   );
-
-  const {movies, isLoading, error} = useMovies(query);
 
   return (
     <>
