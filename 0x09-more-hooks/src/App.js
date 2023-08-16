@@ -1,10 +1,10 @@
-import Header from "./Header"
+import DataCounter from "./DateCounter"
 import "./index.css";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <DataCounter />
     </div>
   );
 }
