@@ -3,9 +3,9 @@ import { useReducer } from "react";
 const reducer = (state, action) => {
   switch (action.type) {
     case "inc":
-      return { ...state, count: state.count + action.step };
+      return { ...state, count: state.count + state.step };
     case "dec":
-      return { ...state, count: state.count - action.step };
+      return { ...state, count: state.count - state.step };
     case "setCount":
       return { ...state, count: action.payload };
     case "setStep":
