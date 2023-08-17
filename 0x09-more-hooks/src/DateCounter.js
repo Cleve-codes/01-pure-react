@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case "setCount":
       return { ...state, count: action.payload };
     case "setStep":
-      return { ...state, count: action.payload };
+      return { ...state, count: state.count, step: action.payload };
     case "reset":
       return { ...state, count: 0, step: 1 };
     default:
