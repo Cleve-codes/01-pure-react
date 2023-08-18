@@ -4,7 +4,7 @@ import Main from "./Main";
 import "./index.css";
 
 const initialState = {
-  question: [],
+  questions: [],
 
   // statuses => "loading", "error", "ready", "active", "finished".
   status: "loading",
@@ -46,7 +46,7 @@ function App() {
       <Main>
         {state.status === "ready"
           ? state.questions.map((q, i) => {
-              return <p key={i}>{q}</p>;
+              return <p key={i}>{q.questions}</p>;
             })
           : "Error"}
       </Main>
