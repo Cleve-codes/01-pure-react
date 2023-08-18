@@ -46,7 +46,8 @@ function App() {
       <Main>
         {state.status === "ready"
           ? state.questions.map((q, i) => {
-              return <p key={i}>{q.questions}</p>;
+           // console.log(q)
+              return <p key={i}>{q.question}</p>;
             })
           : "Error"}
       </Main>
