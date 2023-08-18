@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from "react";
-import Loader from "./Loader"
+import Loader from "./Loader";
+import Error from "./Error";
 import Header from "./Header";
 import Main from "./Main";
 import "./index.css";
@@ -32,7 +33,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{questions, status}, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     fetch(`http://localhost:8000/questions`)
@@ -42,10 +43,11 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Main>
         {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
       </Main>
     </div>
   );
