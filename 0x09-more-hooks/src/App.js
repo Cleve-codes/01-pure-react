@@ -44,8 +44,11 @@ function App() {
     <div className="App">
       <Header />
       <Main>
-        <p>1/15</p>
-        <p>Question</p>
+        {state.status === "ready"
+          ? state.questions.map((q, i) => {
+              return <p key={i}>{q}</p>;
+            })
+          : "Error"}
       </Main>
     </div>
   );
