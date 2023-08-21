@@ -15,7 +15,7 @@ const initialState = {
   index: 0,
 };
 
-function reducer(state, action, index) {
+function reducer(state, action) {
   switch (action.type) {
     case "dataRecieved":
       return {
@@ -51,11 +51,14 @@ function App() {
   );
 
   const numQuestions = questions.length;
-  const question = questions[index]
-  const { correctOption: tmp } = question
+  const question = questions[index];
+ // const { correctOption } = question;
+  const { correctOption } = question;
   
-  console.log(question, typeof question, tmp)
-  
+
+  console.log(question, typeof question, correctOption);
+
+
   useEffect(() => {
     fetch(`http://localhost:8000/questions`)
       .then((res) => res.json())
@@ -72,7 +75,7 @@ function App() {
         {status === "ready" && (
           <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
         )}
-        {status === "active" && <Question question={question}  />}
+        {status === "active" && <Question question={question} />}
       </Main>
     </div>
   );
