@@ -5,14 +5,14 @@ import Header from "./Header";
 import Main from "./Main";
 import "./index.css";
 import StartScreen from "./StartScreen";
-import ActiveScreen from "./Question";
-
+import Question from "./Question";
 
 const initialState = {
   questions: [],
 
   // statuses => "loading", "error", "ready", "active", "finished".
   status: "loading",
+  index: 0,
 };
 
 function reducer(state, action) {
@@ -33,7 +33,7 @@ function reducer(state, action) {
     case "start":
       return {
         ...state,
-        status: "active"
+        status: "active",
       };
 
     default:
@@ -42,7 +42,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   const numQuestions = questions.length;
 
@@ -59,8 +62,10 @@ function App() {
       <Main>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen numQuestions={numQuestions} dispatch={dispatch} />}
-        {status === "active" && <ActiveScreen />}
+        {status === "ready" && (
+          <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
+        )}
+        {status === "active" && <Question question={questions[index]} />}
       </Main>
     </div>
   );
