@@ -52,11 +52,9 @@ function App() {
 
   const numQuestions = questions.length;
   const question = questions[index];
- // const { correctOption } = question;
-  const { correctOption } = question;
   
 
-  console.log(question, typeof question, correctOption);
+ // console.log(question, typeof question);
 
 
   useEffect(() => {

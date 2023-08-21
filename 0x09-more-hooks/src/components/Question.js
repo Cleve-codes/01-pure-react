@@ -4,6 +4,9 @@ function Question({ question }) {
   //const tmp = question.correctOption
   // const answer = question.Option
   // console.log(answer)
+  const { correctOption: index } = question;
+  const answer = question.options[index]
+  //console.log(answer)
 
   return (
     <div>
