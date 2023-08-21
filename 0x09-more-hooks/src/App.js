@@ -51,6 +51,10 @@ function App() {
   );
 
   const numQuestions = questions.length;
+  const question = questions[index]
+  const { correctOption: tmp } = question
+  
+  console.log(question, typeof question, tmp)
   
   useEffect(() => {
     fetch(`http://localhost:8000/questions`)
@@ -68,7 +72,7 @@ function App() {
         {status === "ready" && (
           <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
         )}
-        {status === "active" && <Question question={questions[index]}  />}
+        {status === "active" && <Question question={question}  />}
       </Main>
     </div>
   );
