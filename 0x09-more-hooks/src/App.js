@@ -15,7 +15,7 @@ const initialState = {
   index: 0,
 };
 
-function reducer(state, action) {
+function reducer(state, action, index) {
   switch (action.type) {
     case "dataRecieved":
       return {
@@ -36,6 +36,9 @@ function reducer(state, action) {
         status: "active",
       };
 
+    case "nextQuestion":
+      return { ...state, index: state.index + 1 };
+
     default:
       throw new Error("Data not found");
   }
@@ -48,7 +51,7 @@ function App() {
   );
 
   const numQuestions = questions.length;
-
+  
   useEffect(() => {
     fetch(`http://localhost:8000/questions`)
       .then((res) => res.json())
@@ -65,7 +68,7 @@ function App() {
         {status === "ready" && (
           <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
         )}
-        {status === "active" && <Question question={questions[index]} />}
+        {status === "active" && <Question question={questions[index]}  />}
       </Main>
     </div>
   );
