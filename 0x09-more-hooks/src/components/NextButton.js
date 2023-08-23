@@ -5,6 +5,7 @@ function NextQuestion({ dispatch, answer }) {
   return (
     <button
       onClick={() => dispatch({ type: "nextQuestion" })}
+      className="btn  btn-ui"
     >
       Next
     </button>
