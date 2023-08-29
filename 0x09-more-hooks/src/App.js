@@ -55,6 +55,9 @@ function reducer(state, action) {
     case "nextQuestion":
       return { ...state, index: state.index + 1, answer: null };
 
+    case "newCase":
+      return null;
+
     default:
       throw new Error("Data not found");
   }
