@@ -11,7 +11,6 @@ import "./index.css";
 
 const initialState = {
   questions: [],
-
   // statuses => "loading", "error", "ready", "active", "finished".
   status: "loading",
   index: 0,
