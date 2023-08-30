@@ -3,11 +3,11 @@ import Loader from "./components/Loader";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import "./index.css";
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
 import Progress from "./components/Progress";
+import "./index.css";
 
 const initialState = {
   questions: [],
