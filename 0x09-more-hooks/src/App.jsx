@@ -17,6 +17,7 @@ const initialState = {
   index: 0,
   answer: null,
   points: 0,
+  highscore: 0,
 };
 
 function reducer(state, action) {
@@ -56,7 +57,12 @@ function reducer(state, action) {
       return { ...state, index: state.index + 1, answer: null };
 
     case "finish":
-      return { ...state, status: "finished"}
+      return {
+        ...state,
+        status: "finished",
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
 
     default:
       throw new Error("Data not found");
@@ -64,7 +70,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answer, points }, dispatch] = useReducer(
+  const [{ questions, status, index, answer, points, highscore }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -107,12 +113,21 @@ function App() {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton index={index} numQuestions={numQuestions} dispatch={dispatch} answer={answer} />
+            <NextButton
+              index={index}
+              numQuestions={numQuestions}
+              dispatch={dispatch}
+              answer={answer}
+            />
           </>
         )}
         {status === "finished" && (
           <>
-            <FinishedScreen points={points} maxPossiblePoints={maxPossiblePoints} />
+            <FinishedScreen
+              points={points}
+              maxPossiblePoints={maxPossiblePoints}
+              highscore={highscore}
+            />
           </>
         )}
       </Main>
