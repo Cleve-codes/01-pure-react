@@ -63,6 +63,12 @@ function reducer(state, action) {
         highscore:
           state.points > state.highscore ? state.points : state.highscore,
       };
+    
+    case "restart":
+      return {
+        ...initialState,
+        status: "ready",
+      }
 
     default:
       throw new Error("Data not found");
@@ -127,6 +133,7 @@ function App() {
               points={points}
               maxPossiblePoints={maxPossiblePoints}
               highscore={highscore}
+              dispatch={dispatch}
             />
           </>
         )}
