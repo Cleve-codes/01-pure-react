@@ -23,7 +23,7 @@ const initialState = {
 
 function App() {
 
-  const [{balance, loan, isActive}, dispatch] = useReducer(initialState, reducer)
+  const [{balance, loan, isActive}, dispatch] = useReducer(reducer, initialState)
 
   return <div className="App">
     <Header />
