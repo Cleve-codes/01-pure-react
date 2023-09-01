@@ -9,6 +9,11 @@ function reducer(state, action){
         return {
           ...state, isActive: false
         }
+      
+      case "closeAccount":
+        return {
+          ...state, isActive: true
+        }
 
       default :
       return "UNKOWN ACTION"
