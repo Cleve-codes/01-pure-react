@@ -20,7 +20,7 @@ const initialState = {
   answer: null,
   points: 0,
   highscore: 0,
-  secondsRemaining: 10,
+  secondsRemaining: null,
 };
 
 function reducer(state, action) {
@@ -42,6 +42,7 @@ function reducer(state, action) {
       return {
         ...state,
         status: "active",
+        secondsRemaining: state.questions.length * 30,
       };
 
     case "newAnswer":
