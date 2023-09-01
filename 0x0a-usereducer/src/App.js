@@ -4,6 +4,8 @@ import Bank from "./Bank";
 import { useReducer } from "react";
 
 function reducer(state, action) {
+  if(!state.isActive && action.type !== "openAccount") return state;
+
   switch (action.type) {
     case "openAccount":
       return {
@@ -20,19 +22,21 @@ function reducer(state, action) {
     case "deposit":
       return {
         ...state,
-        balance: state.balance + 150,
+        balance: state.balance + action.payload,
       };
 
     case "withdraw":
       return {
         ...state,
-        balance: state.balance > 0 ? state.balance - 50 : state.balance,
+        balance: state.balance > 0 ? state.balance - action.payload : state.balance,
       };
 
     case "loan":
+      if(state.loan > 0) return state;
       return {
         ...state,
-        balance: state.balance + 5000,
+        loan: action.payload,
+        balance: state.balance + action.payload,
       };
 
     case "payLoan":
