@@ -14,7 +14,7 @@ function reducer(state, action) {
     case "closeAccount":
       return {
         ...state,
-        isActive: true,
+        isActive: state.balance && state.loan === 0 ? false: true,
       };
 
     case "deposit":
