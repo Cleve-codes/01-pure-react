@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import Timer from "./components/Timer";
 import "./index.css";
 
+const SECS_PER_QUESTION = 30;
+
 const initialState = {
   questions: [],
   // statuses => "loading", "error", "ready", "active", "finished".
@@ -42,7 +44,7 @@ function reducer(state, action) {
       return {
         ...state,
         status: "active",
-        secondsRemaining: state.questions.length * 30,
+        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
       };
 
     case "newAnswer":
