@@ -38,8 +38,9 @@ function reducer(state, action) {
     case "payLoan":
       return {
         ...state,
-        loan: 0
-      }
+        balance: state.loan > 0 ? 0: state.balance,
+        loan: state.loan > 0 ? 0: state.loan,
+      };
 
     default:
       return "UNKOWN ACTION";
