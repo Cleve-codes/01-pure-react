@@ -8,6 +8,8 @@ import Question from "./components/Question";
 import NextButton from "./components/NextButton";
 import Progress from "./components/Progress";
 import FinishedScreen from "./components/FinishedScreen";
+import Footer from "./components/Footer";
+import Timer from "./components/Timer";
 import "./index.css";
 
 const initialState = {
@@ -63,12 +65,12 @@ function reducer(state, action) {
         highscore:
           state.points > state.highscore ? state.points : state.highscore,
       };
-    
+
     case "restart":
       return {
         ...initialState,
         status: "ready",
-      }
+      };
 
     default:
       throw new Error("Data not found");
@@ -76,10 +78,8 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, status, index, answer, points, highscore }, dispatch] =
+    useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
@@ -119,12 +119,15 @@ function App() {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton
-              index={index}
-              numQuestions={numQuestions}
-              dispatch={dispatch}
-              answer={answer}
-            />
+            <Footer>
+              <Timer />
+              <NextButton
+                index={index}
+                numQuestions={numQuestions}
+                dispatch={dispatch}
+                answer={answer}
+              />
+            </Footer>
           </>
         )}
         {status === "finished" && (
