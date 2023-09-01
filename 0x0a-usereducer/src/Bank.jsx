@@ -1,19 +1,21 @@
-function Bank() {
+function Bank({dispatch, isActive}) {
     return (
       <div>
         <p>Balance : 0</p>
         <p>Loan : 0</p>
-        <button>Open Account</button>
+        <button onClick={() => dispatch({ type: "openAccount" })}>
+          Open Account
+        </button>
         <br></br>
-        <button disabled>Deposit</button>
+        <button disabled={isActive ? false : true}>Deposit 150</button>
         <br></br>
-        <button disabled>Withdraw</button>
+        <button disabled={isActive ? false : true}>Withdraw 50</button>
         <br></br>
-        <button disabled>Request Loan of 5000</button>
+        <button disabled={isActive ? false : true}>Request Loan of 5000</button>
         <br></br>
-        <button disabled>Pay loan</button>
+        <button disabled={isActive ? false : true}>Pay loan</button>
         <br></br>
-        <button disabled>close account</button>
+        <button disabled={isActive ? false : true}>close account</button>
       </div>
     );
 }
