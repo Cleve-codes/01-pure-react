@@ -70,14 +70,16 @@ function reducer(state, action) {
     case "restart":
       return {
         ...initialState,
+        questions: state.questions,
         status: "ready",
       };
 
     case "tick":
       return {
-        ...state, secondsRemaining: state.secondsRemaining - 1,
-        status: state.secondsRemaining === 0 ? "finished": state.status,
-      }
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0 ? "finished" : state.status,
+      };
 
     default:
       throw new Error("Data not found");
@@ -85,8 +87,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore, secondsRemaining }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, index, answer, points, highscore, secondsRemaining },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
