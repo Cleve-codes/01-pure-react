@@ -14,10 +14,13 @@ function reducer(state, action) {
       };
 
     case "closeAccount":
-      return {
-        ...state,
-        isActive: state.balance && state.loan === 0 ? false: true,
-      };
+      if (state.balance === 0 && state.loan === 0) {
+        return {
+          ...state,
+          isActive: false,
+        };
+      }
+      return state;
 
     case "deposit":
       return {
@@ -26,28 +29,36 @@ function reducer(state, action) {
       };
 
     case "withdraw":
-      return {
-        ...state,
-        balance: state.balance > 0 ? state.balance - action.payload : state.balance,
-      };
+      if (state.isActive && state.balance > action.payload) {
+        return {
+          ...state,
+          balance: state.balance - action.payload,
+        };
+      }
+      return state;
 
     case "loan":
-      if(state.loan > 0) return state;
-      return {
-        ...state,
-        loan: action.payload,
-        balance: state.balance + action.payload,
-      };
+      if (state.loan === 0) {
+        return {
+          ...state,
+          loan: action.payload,
+          balance: state.balance + action.payload,
+        };
+      }
+      return state;
 
     case "payLoan":
-      return {
-        ...state,
-        balance: state.loan > 0 ? 0: state.balance,
-        loan: state.loan > 0 ? 0: state.loan,
-      };
+      if (state.loan > 0) {
+        return {
+          ...state,
+          balance: state.balance - state.loan,
+          loan: 0,
+        };
+      }
+      return state;
 
     default:
-      return "UNKOWN ACTION";
+      return state;
   }
 }
 
