@@ -10,7 +10,7 @@ function reducer(state, action) {
     case "openAccount":
       return {
         ...state,
-        isActive: false,
+        isActive: true,
       };
 
     case "closeAccount":
