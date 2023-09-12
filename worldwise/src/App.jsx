@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
-import AppLayout from "./pages/AppLayout"
+import AppLayout from "./pages/AppLayout";
 import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import Homepage from "./pages/Homepage";
@@ -10,7 +10,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        {/**To be shown when the app initially opens
+         * we use the index attribute.
+         *
+         * The "/" can also be used
+         */}
+        <Route index element={<Homepage />} />
         <Route path="/product" element={<Product />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
