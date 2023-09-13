@@ -10,3 +10,8 @@ Currently, two official plugins are available:
 ### Overview
 
 `    This is my first time using vite and I absolutely love it :D`
+
+### Topics Leanrt
+
+- PropTypes and using them in React
+- Loading data from an API
