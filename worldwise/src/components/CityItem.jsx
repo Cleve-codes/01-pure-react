@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
 
 function CityItem({ city }) {
-  return <li>{city}</li>;
+  return <li>{city.cityName}</li>;
 }
 
-CityItem.PropTypes = {
-  city: PropTypes.string.isRequired,
+CityItem.propTypes = {
+  city: PropTypes.object.isRequired,
 };
 
 export default CityItem;
