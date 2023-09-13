@@ -1,4 +1,4 @@
-import styles from './CountriesList.module.css';
+import styles from './CountryList.module.css';
 import CountryItem from './CountryItem';
 import Spinner from './Spinner';
 import Message from './Message';
@@ -11,10 +11,15 @@ function CountriesList({cities, isLoading}) {
     if(!cities.length) return <Message message='Click anywhere on the map to get country' />
     
 
-    const countries = [];
+    const countries = cities.reduce((arr, city) => {
+        if(!arr.map((el) => el.city).includes(city.country)){
+            return [...arr, {country: city.country, emoji: city.emoji}]
+        }
+        else return arr;
+    }, []);
 
      return (
-       <ul className={styles.countriesList}>
+       <ul className={styles.countryList}>
          {countries.map((country) => (
            <CountryItem country={country} key={country.id} />
          ))}
