@@ -68,6 +68,11 @@ input:focus {
   border-radius: 5px;
 }
 
+
+li {
+  list-style: none;
+}
+
 /*
 "importCSSModule": {
     "prefix": "csm",
