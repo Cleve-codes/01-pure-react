@@ -15,3 +15,8 @@ Currently, two official plugins are available:
 
 - PropTypes and using them in React
 - Loading data from an API
+- Managing state using the url using react-router
+- The useParams hook.
+
+#### Taught by
+- Jonas Schmeddtman.
