@@ -37,39 +37,31 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
-  useEffect(
-    function () {
-      if (!lat && !lng) return;
+  useEffect(()=>{
 
-      async function fetchCityData() {
-        try {
-          setIsLoadingGeocoding(true);
-          setGeocodingError("");
+    async function fetchCityData(){
+      try{
+        setIsLoadingGeocoding(true)
+        const res =
+          await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
+        const data = await res.json()
 
-          const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}`
-          );
-          const data = await res.json();
-          console.log(data);
+        if(!data.countryCode) throw new Error("Country doesn't exist, Click somewhere else😀");
 
-          if (!data.countryCode)
-            throw new Error(
-              "That doesn't seem to be a city. Click somewhere else 😉"
-            );
-
-          setCityName(data.city || data.locality || "");
-          setCountry(data.countryName);
-          setEmoji(convertToEmoji(data.countryCode));
-        } catch (err) {
-          setGeocodingError(err.message);
-        } finally {
-          setIsLoadingGeocoding(false);
-        }
+        setCityName(data.city || data.locality || "")
+        setCountry(data.countryName)
+        setEmoji(convertToEmoji(data.countryCode))
       }
-      fetchCityData();
-    },
-    [lat, lng]
-  );
+      catch (err){
+        setGeocodingError(err.message)
+      }
+      finally{
+        setIsLoadingGeocoding(false)
+      }
+    }
+
+    fetchCityData()
+  }, [lat, lng])
 
   async function handleSubmit(e) {
     e.preventDefault();
