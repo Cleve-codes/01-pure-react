@@ -2,8 +2,8 @@ import Button from "./Button"
 
 function BackButton() {
     return (
-        <Button>
-            Back
+        <Button type="back" >
+           &larr; Back
         </Button>
     )
 }

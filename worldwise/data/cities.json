@@ -25,52 +25,52 @@
       "id": 17806751
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
-      "cityName": "Faro",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 739385
-    },
-    {
-      "cityName": "Machakos",
-      "country": "Kenya",
-      "emoji": "🇰🇪",
-      "date": "2023-09-14T03:39:27.048Z",
+      "cityName": "Les Mars",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-09-17T07:30:29.853Z",
       "notes": "",
       "position": {
-        "lat": "-1.5598658653430082",
-        "lng": "37.06787109375001"
+        "lat": "46.01222384063236",
+        "lng": "2.4829101562500004"
       },
-      "id": 98443198
+      "id": 73930386
     },
     {
-      "cityName": "Malpartida de Plasencia",
+      "cityName": "Malva",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2023-09-16T00:42:04.738Z",
+      "date": "2023-09-17T07:39:26.612Z",
       "notes": "",
       "position": {
-        "lat": "39.87601941962116",
-        "lng": "-6.130371093750001"
+        "lat": "41.672911819602085",
+        "lng": "-5.493164062500001"
       },
-      "id": 98443199
+      "id": 73930387
+    },
+    {
+      "cityName": "Terradillos",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-09-17T07:39:31.070Z",
+      "notes": "",
+      "position": {
+        "lat": "40.83043687764923",
+        "lng": "-5.559082031250001"
+      },
+      "id": 73930388
+    },
+    {
+      "cityName": "Alcaracejos",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-09-17T07:41:12.941Z",
+      "notes": "",
+      "position": {
+        "lat": "38.20365531807151",
+        "lng": "-4.899902343750001"
+      },
+      "id": 73930389
     }
   ]
 }
