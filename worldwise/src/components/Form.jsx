@@ -76,7 +76,7 @@ function Form() {
         position: {lat , lng},
       }
 
-      console.log(newCity)
+      createCity(newCity)
   }
 
   if (isLoadingGeocoding) return <Spinner />;

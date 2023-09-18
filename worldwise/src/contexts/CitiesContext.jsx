@@ -106,27 +106,28 @@ function CitiesProvider({ children }) {
     [currentCity.id]
   );
 
-  async function createCity(newCity) {
-    dispatch({ type: "loading" });
+    async function createCity(newCity){
+      dispatch({type: "loading"})
 
-    try {
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-
-      dispatch({ type: "city/created", payload: data });
-    } catch {
-      dispatch({
-        type: "rejected",
-        payload: "There was an error creating the city...",
-      });
+      try{
+        //setIsLoading(true);
+        const res = await fetch(`${BASE_URL}/cities`, {
+          method: "POST",
+          body: JSON.stringify(newCity),
+          headers: {
+            "content-type": "application/json"
+          },
+        })
+        const data = await res.json();
+        dispatch({type: 'city/created', payload: data})
+        //  setCurrentCity(data)
+      } catch {
+        dispatch({
+          type: "rejected",
+          payload: "There was an error creating the city..."
+        })
+      } 
     }
-  }
 
   async function deleteCity(id) {
     dispatch({ type: "loading" });
