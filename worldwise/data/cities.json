@@ -37,40 +37,16 @@
       "id": 73930386
     },
     {
-      "cityName": "Malva",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-17T07:39:26.612Z",
+      "cityName": "Ouled Harkat",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2023-09-17T09:37:48.024Z",
       "notes": "",
       "position": {
-        "lat": "41.672911819602085",
-        "lng": "-5.493164062500001"
+        "lat": "34.252676117101515",
+        "lng": "5.053710937500001"
       },
       "id": 73930387
-    },
-    {
-      "cityName": "Terradillos",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-17T07:39:31.070Z",
-      "notes": "",
-      "position": {
-        "lat": "40.83043687764923",
-        "lng": "-5.559082031250001"
-      },
-      "id": 73930388
-    },
-    {
-      "cityName": "Alcaracejos",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-17T07:41:12.941Z",
-      "notes": "",
-      "position": {
-        "lat": "38.20365531807151",
-        "lng": "-4.899902343750001"
-      },
-      "id": 73930389
     }
   ]
 }

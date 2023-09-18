@@ -37,49 +37,46 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
-  useEffect(()=>{
-    if(!lat&&!lng) return
+  useEffect(() => {
+    if (!lat && !lng) return;
 
-    async function fetchCityData(){
-      try{
-        setIsLoadingGeocoding(true)
-        const res =
-          await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
-        const data = await res.json()
+    async function fetchCityData() {
+      try {
+        setIsLoadingGeocoding(true);
+        const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
+        const data = await res.json();
 
-        if(!data.countryCode) throw new Error("Country doesn't exist, Click somewhere else😀");
+        if (!data.countryCode)
+          throw new Error("Country doesn't exist, Click somewhere else😀");
 
-        setCityName(data.city || data.locality || "")
-        setCountry(data.countryName)
-        setEmoji(convertToEmoji(data.countryCode))
-      }
-      catch (err){
-        setGeocodingError(err.message)
-      }
-      finally{
-        setIsLoadingGeocoding(false)
+        setCityName(data.city || data.locality || "");
+        setCountry(data.countryName);
+        setEmoji(convertToEmoji(data.countryCode));
+      } catch (err) {
+        setGeocodingError(err.message);
+      } finally {
+        setIsLoadingGeocoding(false);
       }
     }
 
-    fetchCityData()
-  }, [lat, lng])
+    fetchCityData();
+  }, [lat, lng]);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+   const handleSubmit = async (e) =>{
+      e.preventDefault();
 
-    if (!cityName || !date) return;
+      if(!cityName || !date) return;
 
-    const newCity = {
-      cityName,
-      country,
-      emoji,
-      date,
-      notes,
-      position: { lat, lng },
-    };
+      const newCity = {
+        cityName,
+        country,
+        emoji,
+        date,
+        notes,
+        position: {lat , lng},
+      }
 
-    await createCity(newCity);
-    navigate("/app/cities");
+      console.log(newCity)
   }
 
   if (isLoadingGeocoding) return <Spinner />;
