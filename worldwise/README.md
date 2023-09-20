@@ -18,6 +18,8 @@ Currently, two official plugins are available:
 - Managing state using the url using react-router
 - The useParams and useSearchParams hook.
 - Using parameters and query strings to manage state
+- Context API
 
 #### Taught by
+
 - Jonas Schmeddtman.
