@@ -175,10 +175,5 @@ CitiesProvider.propTypes = {
     children: PropTypes.any.isRequired,
 };
 
-function notUsed(){
-  return "I was never used"
-}
-
-notUsed()
 
 export { CitiesProvider, useCities };
