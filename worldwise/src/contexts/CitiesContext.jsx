@@ -88,7 +88,7 @@ function CitiesProvider({ children }) {
 
   const getCity = useCallback(
     async function getCity(id) {
-      if (Number(id) === currentCity.id) return;
+    if(Number(id) === currentCity.id) return;
 
       dispatch({ type: "loading" });
 
