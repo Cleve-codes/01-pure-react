@@ -9,6 +9,7 @@
  */
 
 import { createContext, useContext, useReducer } from "react";
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext();
 
@@ -62,6 +63,10 @@ function useAuth() {
   if (context === undefined)
     throw new Error("AuthContext was used outside AuthProvider");
   return context;
+}
+
+AuthProvider.propTypes = {
+  children: PropTypes.any.isRequired,
 }
 
 export { AuthProvider, useAuth };
