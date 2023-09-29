@@ -72,5 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Topics Leanrt
 
-- Optimization through advanced hooks i.e useMemo, useCallback.
+- Optimization through advanced hooks i.e useMemo, useCallback. 
 - Advanced useEffect
