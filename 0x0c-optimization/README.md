@@ -74,3 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - Optimization through advanced hooks i.e useMemo, useCallback. 
 - Advanced useEffect
+
+#### Tought by
+@jonasschmedtmann
