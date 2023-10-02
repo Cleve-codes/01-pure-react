@@ -24,3 +24,9 @@ export default function Test() {
     </div>
   );
 }
+
+
+function notTest(){
+  console.log("NOT")
+}
+
