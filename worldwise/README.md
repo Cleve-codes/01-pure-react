@@ -19,6 +19,9 @@ Currently, two official plugins are available:
 - The useParams and useSearchParams hook.
 - Using parameters and query strings to manage state
 - Context API
+- useCallback hook for optimization
+- Optimizing bundle size with code splitting "lazy loading"
+- The suspense API
 
 #### Taught by
 
