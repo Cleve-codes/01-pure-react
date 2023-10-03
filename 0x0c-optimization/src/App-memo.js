@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState, memo, useMemo } from "react";
 import { faker } from "@faker-js/faker";
 // import Test from "./Test";
 
@@ -42,10 +42,12 @@ function App() {
     [isFakeDark]
   );
 
-  const archiveOptions = {
+  const archiveOptions = useMemo(() => {
+    return {
     show: false,
     title: "Post archive in addition to main posts",
   }
+  } , [])
 
   return (
     <section>
