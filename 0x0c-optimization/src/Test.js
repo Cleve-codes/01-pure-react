@@ -26,7 +26,3 @@ export default function Test() {
 }
 
 
-function notTest(){
-  console.log("NOT")
-}
-
