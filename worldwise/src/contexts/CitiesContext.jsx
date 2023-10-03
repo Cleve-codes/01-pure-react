@@ -88,7 +88,7 @@ function CitiesProvider({ children }) {
   }, []);
 
   const getCity = useCallback(
-    async function getCity(id) {
+    async function (id) {
     if(Number(id) === currentCity.id) return;
 
       dispatch({ type: "loading" });
@@ -105,7 +105,7 @@ function CitiesProvider({ children }) {
       }
     },
     [currentCity.id]
-  );
+  )
 
     async function createCity(newCity){
       dispatch({type: "loading"})
