@@ -30,11 +30,13 @@ function Calculator({ workouts, allowSound }) {
 
   const handleInc = () => {
     setDuration((prev) => Math.floor(prev)+ 1);
+    playSound()
     // duration += 1
   };
 
   const handleDec = () => {
     setDuration(prev => duration > 1 ? Math.ceil(prev) - 1 : 0)
+    playSound()
     // duration = duration > 1 ? duration - 1 : 0
   }
 
