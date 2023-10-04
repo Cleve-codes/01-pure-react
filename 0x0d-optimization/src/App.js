@@ -15,14 +15,12 @@ function formatTime(date) {
 function App() {
   const [allowSound, setAllowSound] = useState(true);
   // const [time, setTime] = useState(formatTime(new Date()));
-  
 
   // Will be be AM or PM
- 
 
-  const DATE = useMemo(()=>{
+  const DATE = useMemo(() => {
     return formatTime(new Date());
-  }, []) 
+  }, []);
 
   //const [time, setTime] = useState(DATE);
   const partOfDay = DATE.slice(-2);
@@ -50,18 +48,15 @@ function App() {
         numExercises: partOfDay === "AM" ? 5 : 4,
       },
     ];
-  }, [partOfDay]) 
-
+  }, [partOfDay]);
 
   useEffect(() => {
     const id = setInterval(() => {
-      formatTime(new Date()); 
+      formatTime(new Date());
     }, 1000);
 
     return () => clearInterval(id);
   }, []);
-
-
 
   return (
     <main>
