@@ -2,34 +2,29 @@ import { useEffect, useState, useMemo } from "react";
 import Calculator from "./Calculator";
 import ToggleSounds from "./ToggleSounds";
 
-function formatTime(date) {
-  return new Intl.DateTimeFormat("en", {
-    month: "short",
-    year: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  }).format(date);
-}
-
 function App() {
   const [allowSound, setAllowSound] = useState(true);
-  // const [time, setTime] = useState(formatTime(new Date()));
 
-  // Will be be AM or PM
+  const formatTime = (date) => {
+    return new Intl.DateTimeFormat("en", {
+      month: "short",
+      year: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }).format(date);
+  };
 
-  const DATE = useMemo(() => {
-    return formatTime(new Date());
-  }, []);
+  const DATE = useMemo(() => formatTime(new Date()), []);
 
-  //const [time, setTime] = useState(DATE);
-  const partOfDay = DATE.slice(-2);
+  const partOfDay = useMemo(() => DATE.slice(-2), [DATE]);
 
   const workouts = useMemo(() => {
+    const numExercises = partOfDay === "AM" ? [9, 5] : [8, 4];
     return [
       {
         name: "Full-body workout",
-        numExercises: partOfDay === "AM" ? 9 : 8,
+        numExercises: numExercises[0],
       },
       {
         name: "Arms + Legs",
@@ -45,7 +40,7 @@ function App() {
       },
       {
         name: "Core only",
-        numExercises: partOfDay === "AM" ? 5 : 4,
+        numExercises: numExercises[1],
       },
     ];
   }, [partOfDay]);
