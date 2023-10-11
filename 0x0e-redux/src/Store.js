@@ -120,3 +120,9 @@ function createCustomer(fullName, nationalId) {
 function updateName(fullName) {
   return { type: "customer/updateCustomer", payload: fullName };
 }
+
+store.dispatch(createCustomer("Cleve Momanyi", "39930616"))
+console.log(store.getState())
+
+store.dispatch(updateName("Not Cleve"))
+console.log(store.getState())
