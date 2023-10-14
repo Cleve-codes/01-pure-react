@@ -12,6 +12,7 @@ function Customer() {
     if(!fullName || nationalId) return;
 
     dispatch(createCustomer(fullName, nationalId))
+    console.log(fullName, nationalId);
   }
 
   return (
