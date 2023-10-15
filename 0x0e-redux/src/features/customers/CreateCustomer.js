@@ -9,10 +9,16 @@ function Customer() {
   const dispatch = useDispatch();
 
   function handleClick() {
-    if(!fullName || nationalId) return;
+    if (!fullName || nationalId) return;
 
-    dispatch(createCustomer(fullName, nationalId))
+    dispatch(createCustomer(fullName, nationalId));
     console.log(fullName, nationalId);
+  }
+
+  function handleUnclick() {
+    if (fullName && nationalId) return null;
+
+    dispatch(createCustomer(fullName, nationalId));
   }
 
   return (
