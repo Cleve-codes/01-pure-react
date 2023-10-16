@@ -14,13 +14,7 @@ function Customer() {
     dispatch(createCustomer(fullName, nationalId));
     console.log(fullName, nationalId);
   }
-
-  function handleUnclick() {
-    if (fullName && nationalId) return null;
-
-    dispatch(createCustomer(fullName, nationalId));
-  }
-
+  
   return (
     <div>
       <h2>Create new customer</h2>
