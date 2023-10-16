@@ -1,12 +1,23 @@
+import { connect } from "react-redux";
+
 function formatCurrency(value) {
+  if (isNaN(value)) {
+    return "$0.00";
+  }
   return new Intl.NumberFormat("en", {
     style: "currency",
     currency: "USD",
   }).format(value);
 }
 
-function BalanceDisplay() {
-  return <div className="balance">{formatCurrency(123456)}</div>;
+function BalanceDisplay({ balance }) {
+  return <div className="balance">{formatCurrency(balance)}</div>;
 }
 
-export default BalanceDisplay;
+function mapsPropsToState(state) {
+  return {
+    balance: state.account.balance,
+  };
+}
+
+export default connect(mapsPropsToState)(BalanceDisplay);
