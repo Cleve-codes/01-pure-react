@@ -12,9 +12,9 @@ function Customer() {
     if (!fullName || !nationalId) return;
 
     dispatch(createCustomer(fullName, nationalId));
-    console.log(fullName, nationalId);
+    // console.log(fullName, nationalId);
   }
-  
+
   return (
     <div>
       <h2>Create new customer</h2>
