@@ -73,6 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - React-redux
 - Redux ToolKit
+- Thunk middleware
 
 ## Taught by
 @jonasschmedtmann
