@@ -12,3 +12,4 @@ Currently, two official plugins are available:
 - State management using RTK
 - State management using Context API
 - Complex state management using React Router
+- React-redux
