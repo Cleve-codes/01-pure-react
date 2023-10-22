@@ -13,3 +13,5 @@ Currently, two official plugins are available:
 - State management using Context API
 - Complex state management using React Router
 - React-redux
+- Render as you fetch using React Router "createBrowserRoute"
+- Data loading using react router loaders and "useLoaderDate" hook

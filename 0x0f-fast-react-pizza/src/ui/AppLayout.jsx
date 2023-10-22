@@ -1,20 +1,20 @@
-import { Outlet } from "react-router-dom"
-import CartOverview from "../features/cart/CartOverview"
-import Header from "./Header"
+import { Outlet } from "react-router-dom";
+import CartOverview from "../features/cart/CartOverview";
+import Header from "./Header";
 
 function AppLayout() {
-    return (
-        <div>
-            <Header />
+  return (
+    <div>
+      <Header />
 
-            <main>
-                <h1>Content</h1>
-                <Outlet />
-            </main>
+      <main>
+        
+        <Outlet />  {/** Used to render whatever route is to be displayed */} 
+      </main>
 
-            <CartOverview />
-        </div>
-    )
+      <CartOverview />
+    </div>
+  );
 }
 
-export default AppLayout
+export default AppLayout;
