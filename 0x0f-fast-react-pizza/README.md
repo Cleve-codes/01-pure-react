@@ -15,3 +15,6 @@ Currently, two official plugins are available:
 - React-redux
 - Render as you fetch using React Router "createBrowserRoute"
 - Data loading using react router loaders and "useLoaderDate" hook
+- Writing data using React Router 
+- Error Handling using React router
+- Form actions in React Router
