@@ -19,3 +19,4 @@ Currently, two official plugins are available:
 - Error Handling using React router
 - Form actions in React Router
 - React Router V6.4
+- Redux Selector functions
