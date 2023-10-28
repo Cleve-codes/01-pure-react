@@ -13,3 +13,6 @@ Currently, two official plugins are available:
 - React Router V6.4
 - React Query
 - Styled components
+- Supabase
+- Context API
+- Managing remote state
