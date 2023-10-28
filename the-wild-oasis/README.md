@@ -16,3 +16,7 @@ Currently, two official plugins are available:
 - Supabase
 - Context API
 - Managing remote state
+
+
+### Taught by:
+@Jonasschemddtman
