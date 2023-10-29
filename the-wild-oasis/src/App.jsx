@@ -23,14 +23,19 @@ const Input = styled.input`
   padding: 0.8rem 1.2rem;
 `
 
+const StyledApp = styled.div`
+  background-color: orangered;
+  padding: 20px;
+`
+
 function App() {
   return (
-    <div>
+    <StyledApp>
       <H1>The Wild Oasis</H1>
       <Button>Check In</Button>
       <Button>Check Out</Button>
       <Input type="number" placeholder="Number of guests..." />
-    </div>
+    </StyledApp>
   );
 }
 
