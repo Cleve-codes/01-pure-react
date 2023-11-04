@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled, { css } from "styled-components";
 
 const sizes = {
@@ -60,6 +61,18 @@ const Button = styled.button`
 Button.defaultProps = {
   variation: "primary",
   size: "medium",
-}
+};
 
 export default Button;
+
+function ButtonSecond() {
+  useEffect(() => {
+    async () => {
+      const res = await fetch(``);
+      const data = await res.json()
+      console.log(data)
+    };
+  }, []);
+
+  return <div></div>;
+}

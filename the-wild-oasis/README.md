@@ -15,7 +15,7 @@ Currently, two official plugins are available:
 - Styled components
 - Supabase
 - Context API
-- Managing remote state
+- Managing remote state with redux
 
 
 ### Taught by:
