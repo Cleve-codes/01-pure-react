@@ -22,3 +22,11 @@ export async function action({ request, params }) {
   await updateOrder(params.orderId, data);
   return null;
 }
+
+
+export async function reaction({request, params}){
+  const data = { priority: true};
+
+  await updateOrder(params.orderId, data);
+  null;
+}
