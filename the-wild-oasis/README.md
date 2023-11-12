@@ -7,7 +7,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-
 ## Topics Leanrt
 
 - React Router V6.4
@@ -16,7 +15,8 @@ Currently, two official plugins are available:
 - Supabase
 - Context API
 - Managing remote state with redux
-
+- Passing props in styled componenets
 
 ### Taught by:
+
 @Jonasschemddtman
