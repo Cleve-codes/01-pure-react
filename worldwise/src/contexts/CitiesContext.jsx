@@ -57,6 +57,10 @@ function reducer(state, action) {
         error: action.payload,
       };
 
+    case "reset":
+      return initialState;
+      
+
     default:
       throw new Error("Unknown action type");
   }
